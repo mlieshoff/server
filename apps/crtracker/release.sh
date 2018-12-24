@@ -1,7 +1,32 @@
 #!/bin/bash
 
-source ~/.dotfileprefs
+DIRECTORY=/home/crtracker
+STATUS=/home/crtracker/status.txt
 
-echo execute psql $1
+cd /tmp
 
-sudo -u postgres psql -U postgres -c "$1"
+cp crtracker.tar /home/crtracker/
+
+cd /home/crtracker
+
+if [ -f "$STATUS" ]; then
+	rm $STATUS
+	while true; do
+
+		value=`cat $STATUS`
+		echo "$value" > /dev/null
+
+		if [ "$value" == "STOPPED" ]; then
+			echo "stopped."
+			tar -xvf crtracker.tar 
+			java -jar libs/crtracker.jar conf/key conf/config.properties conf/credentials.properties status.txt &	   
+			exit 1
+		fi
+
+	done
+fi
+
+tar -xvf crtracker.tar 
+java -jar libs/crtracker.jar conf/key conf/config.properties conf/credentials.properties status.txt &	   
+
+exit 1
