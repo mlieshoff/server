@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DIRECTORY=/home/gotya
+DIRECTORY=/home/gotya/server
 STATUS=/home/gotya/server/status.txt
 
 cd $DIRECTORY/server
