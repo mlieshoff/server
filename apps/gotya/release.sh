@@ -8,6 +8,8 @@ cd $DIRECTORY/server
 echo "Refresh from repositiory...."
 git pull
 
+cd apps/gotya
+
 echo "Stop server...."
 if [ -f "$STATUS" ]; then
 	rm $STATUS
