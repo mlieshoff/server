@@ -1,14 +1,14 @@
 #!/bin/bash
 
 DIRECTORY=/home/crtracker
-STATUS=/home/crtracker/status.txt
+STATUS=/home/crtracker/server/status.txt
 
-cd /tmp
+cd $DIRECTORY/server
 
-cp crtracker.tar /home/crtracker/
+echo "Refresh from repositiory...."
+git pull
 
-cd /home/crtracker
-
+echo "Stop server...."
 if [ -f "$STATUS" ]; then
 	rm $STATUS
 	while true; do
@@ -17,16 +17,15 @@ if [ -f "$STATUS" ]; then
 		echo "$value" > /dev/null
 
 		if [ "$value" == "STOPPED" ]; then
-			echo "stopped."
-			tar -xvf crtracker.tar 
-			java -jar libs/crtracker.jar conf/key conf/config.properties conf/credentials.properties status.txt &	   
+			echo "Start server...."
+			java -jar libs/crtracker.jar conf/key conf/config.properties conf/credentials.properties $STATUS &	   
 			exit 1
 		fi
 
 	done
 fi
 
-tar -xvf crtracker.tar 
-java -jar libs/crtracker.jar conf/key conf/config.properties conf/credentials.properties status.txt &	   
+echo "Start server...."
+java -jar libs/crtracker.jar conf/key conf/config.properties conf/credentials.properties $STATUS &	   
 
 exit 1
