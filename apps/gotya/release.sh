@@ -1,14 +1,15 @@
 #!/bin/bash
 
 DIRECTORY=/home/gotya/server
-STATUS=/home/gotya/server/status.txt
+STATUS=$DIRECTORY/status.txt
+APP=$DIRECTORY/server/apps/gotya
 
 cd $DIRECTORY/server
 
+pwd
+
 echo "Refresh from repositiory...."
 git pull
-
-cd apps/gotya
 
 echo "Stop server...."
 if [ -f "$STATUS" ]; then
@@ -19,15 +20,19 @@ if [ -f "$STATUS" ]; then
 		echo "$value" > /dev/null
 
 		if [ "$value" == "STOPPED" ]; then
-			echo "Start server...."
-			java -jar libs/gotya.jar conf/key conf/token.cipher conf/config.properties conf/credentials.properties $STATUS &
-			exit 1
+			echo "Stopped server."
+			break
 		fi
 
 	done
 fi
 
+cd $APP
+
+echo "Decrypt jar..."
+java -cp libs/server-1.0.jar server.FileCipher conf/key libs/gotya-encrypted.jar decode libs/gotya.jar
+
 echo "Start server...."
-java -jar libs/gotya.jar conf/key conf/token.cipher conf/config.properties conf/credentials.properties $STATUS &
+java -jar libs/gotya.jar conf/key conf/config.properties conf/credentials.properties $STATUS &	   
 
 exit 1
