@@ -1,7 +1,7 @@
 #!/bin/bash
 
-DIRECTORY=/home/crtracker
-STATUS=/home/crtracker/server/status.txt
+DIRECTORY=/home/crtracker/server
+STATUS=$DIRECTORY/status.txt
 
 cd $DIRECTORY/server
 
