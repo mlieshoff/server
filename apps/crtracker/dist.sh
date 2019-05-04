@@ -2,7 +2,7 @@
 
 echo create server libs...
 mvn clean install
-cp target/server-1.0.jar libs
+cp target/server-1.0.jar apps/crtracker/libs
 
 echo prepare crtracker release...
 cd ../crtracker
