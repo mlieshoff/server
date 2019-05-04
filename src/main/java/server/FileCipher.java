@@ -17,6 +17,7 @@ import java.nio.file.Files;
 public class FileCipher {
 
     public static void main(String[] args) throws Throwable {
+        System.out.println("base dir: " + new File("").getAbsolutePath());
         if (args == null || args.length != 4) {
             showHelp();
         }
