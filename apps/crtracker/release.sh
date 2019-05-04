@@ -30,7 +30,7 @@ fi
 cd $APP
 
 echo "Decrypt jar..."
-java -cp libs/server-1.0.jar server.FileCipher conf/key libs/crtracker-ecrypted.jar code libs/crtracker.jar
+java -cp libs/server-1.0.jar server.FileCipher conf/key libs/crtracker-encrypted.jar code libs/crtracker.jar
 
 echo "Start server...."
 java -jar libs/crtracker.jar conf/key conf/config.properties conf/credentials.properties $STATUS &	   
