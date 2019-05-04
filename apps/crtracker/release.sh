@@ -2,6 +2,7 @@
 
 DIRECTORY=/home/crtracker/server
 STATUS=$DIRECTORY/status.txt
+APP=$DIRECTORY/server/apps/crtracker
 
 cd $DIRECTORY/server
 
@@ -25,6 +26,8 @@ if [ -f "$STATUS" ]; then
 
 	done
 fi
+
+cd $APP
 
 echo "Decrypt jar..."
 java -cp libs/server-1.0.jar server.FileCipher conf/key libs/crtracker-ecrypted.jar code libs/crtracker.jar
