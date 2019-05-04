@@ -5,6 +5,8 @@ STATUS=/home/crtracker/server/status.txt
 
 cd $DIRECTORY/server
 
+pwd
+
 echo "Refresh from repositiory...."
 git pull
 
