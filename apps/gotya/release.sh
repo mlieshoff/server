@@ -33,6 +33,6 @@ echo "Decrypt jar..."
 java -cp libs/server-1.0.jar server.FileCipher conf/key libs/gotya-encrypted.jar decode libs/gotya.jar
 
 echo "Start server...."
-java -jar libs/gotya.jar conf/key conf/config.properties conf/credentials.properties $STATUS &	   
+java -jar libs/gotya.jar conf/key conf/token.cipher conf/config.properties conf/credentials.properties $STATUS &
 
 exit 1
