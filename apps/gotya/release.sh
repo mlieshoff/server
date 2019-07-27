@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DIRECTORY=/tmp/home/gotya/server
+DIRECTORY=/home/gotya/server
 STATUS=$DIRECTORY/status.txt
 APP=$DIRECTORY/server/apps/gotya
 
