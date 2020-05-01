@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DIRECTORY=/home/gotya/server
-STATUS=$DIRECTORY/status.txt
+STATUS=$DIRECTORY/gotya.pid
 APP=$DIRECTORY/server/apps/gotya
 
 cd $DIRECTORY/server
@@ -13,18 +13,15 @@ git pull
 
 echo "Stop server...."
 if [ -f "$STATUS" ]; then
-	rm $STATUS
-	while true; do
-
-		value=`cat $STATUS`
-		echo "$value" > /dev/null
-
-		if [ "$value" == "STOPPED" ]; then
-			echo "Stopped server."
-			break
-		fi
-
-	done
+  kill $(cat $STATUS)
+  while true; do
+    if [ -f "$STATUS" ]; then
+      echo "Waiting ..."
+    else
+      echo "Stopped server."
+      break
+    fi
+  done
 fi
 
 cd $APP
