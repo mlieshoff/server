@@ -11,7 +11,7 @@ echo copy production keys to ids.xml
 cp ../server_credentials/conf/gotya/ids.xml android/res/values/ids.xml
 
 echo create jars...
-./gradlew jar
+./gradlew clean assemble
 
 echo TODO gradle call to assemble apk
 # ./gradlew android:assemble
