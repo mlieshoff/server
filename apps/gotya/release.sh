@@ -27,9 +27,9 @@ fi
 cd $APP
 
 echo "Decrypt jar..."
-java -cp libs/server-1.0.jar server.FileCipher conf/key libs/gotya-encrypted.jar decode libs/gotya.jar
+java -Dlog4j2.formatMsgNoLookups=true -cp libs/server-1.0.jar server.FileCipher conf/key libs/gotya-encrypted.jar decode libs/gotya.jar
 
 echo "Start server...."
-java -jar libs/gotya.jar conf/payment-production.p12 conf/key conf/token.cipher conf/config.properties conf/credentials.properties $STATUS &
+java -Dlog4j2.formatMsgNoLookups=true -jar libs/gotya.jar conf/payment-production.p12 conf/key conf/token.cipher conf/config.properties conf/credentials.properties $STATUS &
 
 exit 1

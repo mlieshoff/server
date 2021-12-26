@@ -27,9 +27,9 @@ fi
 cd $APP
 
 echo "Decrypt jar..."
-java -cp libs/server-1.0.jar server.FileCipher conf/key libs/crtracker-encrypted.jar decode libs/crtracker.jar
+java -Dlog4j2.formatMsgNoLookups=true -cp libs/server-1.0.jar server.FileCipher conf/key libs/crtracker-encrypted.jar decode libs/crtracker.jar
 
 echo "Start server...."
-java -jar libs/crtracker.jar conf/key conf/config.properties conf/credentials.properties $STATUS &	   
+java -Dlog4j2.formatMsgNoLookups=true -jar libs/crtracker.jar conf/key conf/config.properties conf/credentials.properties $STATUS &
 
 exit 1
