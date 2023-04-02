@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+
 sdk use java 20-oracle
 
 echo create server libs...
