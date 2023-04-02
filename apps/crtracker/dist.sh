@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sdk use java 20-oracle
+
 echo create server libs...
 mvn clean install
 cp target/server-1.0.jar apps/crtracker/libs
