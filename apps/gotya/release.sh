@@ -1,5 +1,9 @@
 #!/bin/bash
 
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+sdk use java 20-oracle
+
 DIRECTORY=/home/gotya/server
 STATUS=$DIRECTORY/gotya.pid
 APP=$DIRECTORY/server/apps/gotya
