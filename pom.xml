@@ -12,7 +12,7 @@
         <developer>
             <id>michael.lieshoff (ML)</id>
             <name>Michael Lieshoff</name>
-            <email>michaellieshoff@gmx.de</email>
+            <email>michael.lieshoff@gmail.com</email>
             <organization>mili.org</organization>
             <roles>
                 <role>Developer</role>
@@ -57,8 +57,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>20</source>
-                    <target>20</target>
+                    <source>21</source>
+                    <target>21</target>
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>

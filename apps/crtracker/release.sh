@@ -2,7 +2,7 @@
 
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-sdk use java 20-oracle
+sdk use java 21.0.3-oracle
 
 DIRECTORY=/home/crtracker/server
 STATUS=$DIRECTORY/crtracker.pid
@@ -31,9 +31,9 @@ fi
 cd $APP
 
 echo "Decrypt jar..."
-/root/.sdkman/candidates/java/20-oracle/bin/java -Dlog4j2.formatMsgNoLookups=true -cp libs/server-1.0.jar server.FileCipher conf/key libs/crtracker-encrypted.jar decode libs/crtracker.jar
+/root/.sdkman/candidates/java/21.0.3-oracle/bin/java -Dlog4j2.formatMsgNoLookups=true -cp libs/server-1.0.jar server.FileCipher conf/key libs/crtracker-encrypted.jar decode libs/crtracker.jar
 
 echo "Start server...."
-/root/.sdkman/candidates/java/20-oracle/bin/java -Dlog4j2.formatMsgNoLookups=true -jar libs/crtracker.jar conf/key conf/config.properties conf/credentials.properties $STATUS &
+/root/.sdkman/candidates/java/21.0.3-oracle/bin/java -Dlog4j2.formatMsgNoLookups=true -jar libs/crtracker.jar conf/key conf/config.properties conf/credentials.properties $STATUS &
 
 exit 1

@@ -2,7 +2,7 @@
 
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-sdk use java 20-oracle
+sdk use java 21.0.3-oracle
 
 echo create server libs...
 mvn clean install
